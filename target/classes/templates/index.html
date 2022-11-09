@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Список дел</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+ <div id="task-form">
+ <form>
+    <h2>Добавление дела</h2>
+    <label>Название дела:</label>
+    <input type="text" name="name" value="">
+     <br>
+    <label>Дата дела:</label>
+    <input type="text" name="date" value="">
+    <br>
+    <button id="save-task">Сохранить</button>
+ </form>
+</div>
+
+<h1>Список дел</h1>
+<button id="show-add-task-form">Добавить дело</button>
+
+ <div id="task-list">
+     <div th:each="task : ${tasks}">
+         <a href="#" class="task-link" th:attr="data-id=${task.id}" th:text="${task.name}"></a>
+     </div>
+ </div>
+ <script src="/js/jquery.js"></script>
+ <script src="/js/main.js"></script>
+</body>
+</html>
